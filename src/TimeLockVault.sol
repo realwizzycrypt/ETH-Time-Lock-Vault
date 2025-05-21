@@ -36,13 +36,6 @@ contract TimeLockVault {
 
     }
 
-    function timeLeft() external view returns (uint256) {
-        if (block.timestamp >= deposits[msg.sender].unlockTimeInSeconds) {
-            return 0;
-        }
-        return deposits[msg.sender].unlockTimeInSeconds - block.timestamp;
-    }
-
     function getDeposit(address user) external view returns (uint256) {
         return deposits[user].amount;
     }
